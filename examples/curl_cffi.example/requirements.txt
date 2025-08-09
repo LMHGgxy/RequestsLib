@@ -1,0 +1,2 @@
+colorama
+curl_cffi
