@@ -91,7 +91,7 @@ class RequestsScraper(BaseScraper):
         for attempt in range(self.max_retries):
             try:
                 _log(self.logs, f"[GET] {url} (Attempt {attempt + 1})")
-                return self.session.get(url, **kwargs, cookies=self.session.cookies.get_dict())
+                return self.session.get(url, **kwargs)
             except self.requests.RequestException as e:
                 _log(self.logs, f"[GET ERROR] {e}", "error")
                 time.sleep(1)
@@ -101,7 +101,7 @@ class RequestsScraper(BaseScraper):
         for attempt in range(self.max_retries):
             try:
                 _log(self.logs, f"[POST] {url} (Attempt {attempt + 1})")
-                return self.session.post(url, data=data, json=json, **kwargs, cookies=self.session.cookies.get_dict())
+                return self.session.post(url, data=data, json=json, **kwargs)
             except self.requests.RequestException as e:
                 _log(self.logs, f"[POST ERROR] {e}", "error")
                 time.sleep(1)
@@ -111,7 +111,7 @@ class RequestsScraper(BaseScraper):
         for attempt in range(self.max_retries):
             try:
                 _log(self.logs, f"[PUT] {url} (Attempt {attempt + 1})")
-                return self.session.put(url, data=data, json=json, **kwargs, cookies=self.session.cookies.get_dict())
+                return self.session.put(url, data=data, json=json, **kwargs)
             except self.requests.RequestException as e:
                 _log(self.logs, f"[PUT ERROR] {e}", "error")
                 time.sleep(1)
@@ -208,7 +208,7 @@ class CurlCffiScraper(BaseScraper):
         for attempt in range(self.max_retries):
             try:
                 _log(self.logs, f"[GET] {url} (Attempt {attempt + 1})")
-                return self.session.get(url, **kwargs, cookies=self.session.cookies.get_dict())
+                return self.session.get(url, **kwargs)
             except self.cffi_requests.RequestsError as e:
                 _log(self.logs, f"[GET ERROR] {e}", "error")
                 time.sleep(1)
@@ -218,7 +218,7 @@ class CurlCffiScraper(BaseScraper):
         for attempt in range(self.max_retries):
             try:
                 _log(self.logs, f"[POST] {url} (Attempt {attempt + 1})")
-                return self.session.post(url, data=data, json=json, **kwargs, cookies=self.session.cookies.get_dict())
+                return self.session.post(url, data=data, json=json, **kwargs)
             except self.cffi_requests.RequestsError as e:
                 _log(self.logs, f"[POST ERROR] {e}", "error")
                 time.sleep(1)
@@ -228,7 +228,7 @@ class CurlCffiScraper(BaseScraper):
         for attempt in range(self.max_retries):
             try:
                 _log(self.logs, f"[PUT] {url} (Attempt {attempt + 1})")
-                return self.session.put(url, data=data, json=json, **kwargs, cookies=self.session.cookies.get_dict())
+                return self.session.put(url, data=data, json=json, **kwargs)
             except self.cffi_requests.RequestsError as e:
                 _log(self.logs, f"[PUT ERROR] {e}", "error")
                 time.sleep(1)
@@ -260,7 +260,7 @@ class CloudscraperScraper(BaseScraper):
         for attempt in range(self.max_retries):
             try:
                 _log(self.logs, f"[GET] {url} (Attempt {attempt + 1})")
-                return self.session.get(url, **kwargs, cookies=self.session.cookies.get_dict())
+                return self.session.get(url, **kwargs)
             except self.cloudscraper.requests.RequestException as e:
                 _log(self.logs, f"[GET ERROR] {e}", "error")
                 time.sleep(1)
@@ -270,7 +270,7 @@ class CloudscraperScraper(BaseScraper):
         for attempt in range(self.max_retries):
             try:
                 _log(self.logs, f"[POST] {url} (Attempt {attempt + 1})")
-                return self.session.post(url, data=data, json=json, **kwargs, cookies=self.session.cookies.get_dict())
+                return self.session.post(url, data=data, json=json, **kwargs)
             except self.cloudscraper.requests.RequestException as e:
                 _log(self.logs, f"[POST ERROR] {e}", "error")
                 time.sleep(1)
@@ -280,7 +280,7 @@ class CloudscraperScraper(BaseScraper):
         for attempt in range(self.max_retries):
             try:
                 _log(self.logs, f"[PUT] {url} (Attempt {attempt + 1})")
-                return self.session.put(url, data=data, json=json, **kwargs, cookies=self.session.cookies.get_dict())
+                return self.session.put(url, data=data, json=json, **kwargs)
             except self.cloudscraper.requests.RequestException as e:
                 _log(self.logs, f"[PUT ERROR] {e}", "error")
                 time.sleep(1)
